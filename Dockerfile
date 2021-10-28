@@ -11,7 +11,7 @@ RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial && \
     yum -y install epel-release && \
     yum -y update
 
-RUN yum -y install sudo
+RUN yum -y install sudo git curl
 
 RUN sudo groupadd -f bootcamp && \
     sudo adduser bootcamp -g bootcamp && \
