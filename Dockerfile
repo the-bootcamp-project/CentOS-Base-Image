@@ -29,6 +29,6 @@ ENV PATH /home/bootcamp/.local/bin:/usr/local/bin/python3:/usr/local/bin/pip3:$P
 
 WORKDIR /home/bootcamp
 
-RUN bash <(curl -s https://gitlab.com/the-bootcamp-project/companion/cli/-/raw/main/install.sh)
+RUN https://gitlab.com/the-bootcamp-project/companion/cli/-/raw/main/install.sh | bash
 
 # tbcp/centos:latest
