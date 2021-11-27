@@ -124,9 +124,9 @@ See [LICENSE](LICENSE) for more information.
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
 
-[Repo_Homepage]: https://gitlab.com/the-bootcamp-project/containers/centos
+[Repo_Homepage]: https://containers.bootcamp-project.com/#/base_os/centos
 [Repo_URL]: https://gitlab.com/the-bootcamp-project/containers/centos
-[Repo_Docs]: https://containers.bootcamp-project.com
+[Repo_Docs]: https://containers.bootcamp-project.com/#/base_os/centos
 [Repo_Issues]: https://gitlab.com/the-bootcamp-project/containers/centos/-/issues
 [TBCP_Contribution]: https://bootcamp-project.com/#code_of_conduct
 [TBCP_Homepage]: https://bootcamp-project.com
