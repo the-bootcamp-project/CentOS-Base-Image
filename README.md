@@ -103,7 +103,7 @@ Please read the [contribution guidelines][TBCP_Contribution] first.
 
 ## 🏆 Acknowledgements 🏆
 
-Thanks for these awesome resources that were used during the development of the **Bootcamp: Docker Image Project Structure**:
+Thanks for these awesome resources that were used during the development of the **Bootcamp: CentOS Docker Images**:
 
 ## 📜 License 📜
 
