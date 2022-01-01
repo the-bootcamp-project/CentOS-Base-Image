@@ -1,34 +1,25 @@
 FROM centos:latest
 
-ENV LANGUAGE en_US.utf8
-ENV LC_ALL en_US.utf8
-ENV LC_CTYPE en_US.utf8
-ENV LC_COLLATE en_US.utf8
-ENV LC_MESSAGES en_US.utf8
-ENV LANG en_US.utf8
+ARG USER=bootcamp
 
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial && \
-    yum -y install epel-release && \
+    yum -y install epel-release yum-utils && \
     yum -y update
 
-RUN yum -y install sudo git curl
+RUN yum -y install sudo
 
-RUN sudo groupadd -f bootcamp && \
-    sudo adduser bootcamp -g bootcamp && \
-    echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
-    sudo usermod -aG wheel bootcamp
+RUN sudo groupadd -f $USER && \
+    sudo adduser $USER -g $USER && \
+    echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER && \
+    chmod 0440 /etc/sudoers.d/$USER
 
 USER bootcamp
 
 RUN sudo yum -y install \
     openssh-clients \
-    git
+    git curl
 
 ENV HOME /home/bootcamp
-ENV PATH /home/bootcamp/.local/bin:/usr/local/bin/python3:/usr/local/bin/pip3:$PATH
+ENV PATH /home/bootcamp/.local/bin:$PATH
 
 WORKDIR /home/bootcamp
-
-RUN https://gitlab.com/the-bootcamp-project/companion/cli/-/raw/main/install.sh | bash
-
-# tbcp/centos:latest

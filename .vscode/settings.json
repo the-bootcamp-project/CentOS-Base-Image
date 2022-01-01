@@ -1,9 +1,3 @@
 {
-    "files.eol": "\n",
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#42233C",
-        "titleBar.activeBackground": "#5D3154",
-        "titleBar.activeForeground": "#FCF9FB"
-    },
-    // Project-related
+    "files.eol": "\n"
 }

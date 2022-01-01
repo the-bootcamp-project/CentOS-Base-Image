@@ -1,6 +1,5 @@
 stages:
   - Building
-  - Deployment
 
 docker-build-master:
   # Official docker image.
@@ -16,20 +15,6 @@ docker-build-master:
   only:
     - main
 
-docker-build-develop:
-  # Official docker image.
-  image: docker:latest
-  stage: Building
-  services:
-    - docker:dind
-  before_script:
-    - echo $CI_DOCKERHUB_PASSWORD | docker login -u "$CI_DOCKERHUB_USER" --password-stdin $CI_DOCKERHUB_REGISTRY
-  script:
-    - docker build --pull -t "index.docker.io/tbcp/centos:develop" .
-    - docker push "index.docker.io/tbcp/centos:develop"
-  only:
-    - develop
-
 docker-build:
   # Official docker image.
   image: docker:latest
@@ -39,17 +24,7 @@ docker-build:
   before_script:
     - echo $CI_DOCKERHUB_PASSWORD | docker login -u "$CI_DOCKERHUB_USER" --password-stdin $CI_DOCKERHUB_REGISTRY
   script:
-    - docker build --pull -t "index.docker.io/tbcp/centos:$CI_COMMIT_REF_SLUG" .
-    - docker push "index.docker.io/tbcp/centos:$CI_COMMIT_REF_SLUG"
+    - docker build --pull -t "index.docker.io/tbcp/centos:latest" .
+    - docker push "index.docker.io/tbcp/centos:latest"
   except:
     - main
-    - develop
-
-pages:
-    stage: Deployment
-    script:
-        - mkdir ./public
-        - cp -r README.md public/ && cp -r USAGE.md public/
-    artifacts:
-        paths: [public]
-        expire_in: 1 mins
