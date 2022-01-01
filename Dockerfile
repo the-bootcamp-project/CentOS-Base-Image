@@ -15,9 +15,8 @@ RUN sudo groupadd -f $USER && \
 
 USER bootcamp
 
-RUN sudo yum -y install \
-    openssh-clients \
-    git curl
+RUN sudo yum -y install openssh-clients git curl && \
+    yum groupinstall "Development Tools"
 
 ENV HOME /home/bootcamp
 ENV PATH /home/bootcamp/.local/bin:$PATH
